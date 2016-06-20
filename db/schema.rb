@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619192031) do
+ActiveRecord::Schema.define(version: 20160620092502) do
 
   create_table "movimientos", force: true do |t|
     t.string   "titular"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160619192031) do
     t.string   "desconceptocomun"
     t.string   "codconceptopropio"
     t.string   "clavedh"
-    t.string   "importe"
-    t.string   "saldo"
+    t.float    "importe"
+    t.float    "saldo"
     t.string   "documento"
     t.string   "ref1"
     t.string   "ref2"

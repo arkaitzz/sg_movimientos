@@ -13,8 +13,8 @@ class Movimiento < ActiveRecord::Base
     desconceptocomun :string
     codconceptopropio :string
     clavedh   :string
-    importe   :string
-    saldo     :string
+    importe   :float
+    saldo     :float
     documento :string
     ref1      :string
     ref2      :string
@@ -83,7 +83,7 @@ class Movimiento < ActiveRecord::Base
       end
       Movimiento.create :numcuenta => a['NumCuenta'], :titular => a['Titular'], :fechaop => fechaop, :fechavalor => fechavalor, 
         :codconceptocomun => a['CodConceptoComun'], :desconceptocomun => a['DesConceptoComun'], :codconceptopropio => a['CodConceptoPropio'],
-        :clavedh => a['ClaveDH'], :importe => importe, :saldo => saldo, :documento => a['Documento'],
+        :clavedh => a['ClaveDH'], :importe => importe.to_f, :saldo => saldo.to_f, :documento => a['Documento'],
         :ref1 => a['Referencia1'], :ref2 => a['Referencia2'], :concepto1 => a['Concepto1'], :concepto2 => a['Concepto2'], :concepto3 => a['Concepto3'], 
         :concepto4 => a['Concepto4'], :concepto5 => a['Concepto5'], :concepto6 => a['Concepto6'], :concepto7 => a['Concepto7'], :concepto8 => a['Concepto8']
     end

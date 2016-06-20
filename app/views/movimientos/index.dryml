@@ -2,6 +2,8 @@
 
   <collection: replace>
     <table-plus-with-filters with='&@movimientos' fields='this, titular, fechaop, fechavalor,numcuenta, importe, saldo,  codconceptocomun, desconceptocomun, actions' filters='titular, fechaop, fechavalor, numcuenta, importe, saldo,  codconceptocomun, desconceptocomun,'>
+      <saldo-view:><%= number_to_currency(this) %></saldo-view:> 
+      <importe-view:><%= number_to_currency(this) %></importe-view:> 
       <actions-heading:><t key='activerecord.attributes.movements.actions'/></actions-heading:>
       <actions-view:><bootstrap-table-actions/></actions-view:>
     </table-plus-with-filters>
