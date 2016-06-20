@@ -1,0 +1,10 @@
+<index-page>
+
+  <collection: replace>
+    <table-plus-with-filters with='&@movimientos' fields='this, titular, fechaop, fechavalor,numcuenta, importe, saldo,  codconceptocomun, desconceptocomun, actions' filters='titular, fechaop, fechavalor, numcuenta, importe, saldo,  codconceptocomun, desconceptocomun,'>
+      <actions-heading:><t key='activerecord.attributes.movements.actions'/></actions-heading:>
+      <actions-view:><bootstrap-table-actions/></actions-view:>
+    </table-plus-with-filters>
+  </collection:>
+</index-page>
+

@@ -1,0 +1,9 @@
+<!-- this file is included by front_site.dryml, admin_site.dryml et al, so
+you can place common code in this file. -->
+
+<def tag='main-nav'>
+  <navigation class='main-nav' merge-attrs param='default'>
+    <nav-item with='&Movimiento'> Movimientos </nav-item>
+    <nav-item href="/import/index/"> Importar CSV </nav-item>
+  </navigation>
+</def>

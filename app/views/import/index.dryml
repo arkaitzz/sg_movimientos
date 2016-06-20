@@ -1,0 +1,20 @@
+<page title=" Import Home">
+
+  <body: class="front-page"/>
+
+  <content:>
+    <header class="content-header hero-unit">
+      <h1>Importar movimientos</h1>
+      <section class="welcome-message">
+        <h3>Selecciona el fichero CSV</h3>
+        <form method="post" enctype="multipart/form-data" action="/import/process/" accept-charset="UTF-8">
+          <input id="file" type="file" name="file"/>
+          <input type="submit" value="Importar CSV" name="commit"/>
+        </form>
+      </section>
+    </header>
+    <section class="content-body">
+    </section>
+  </content:>
+
+</page>
