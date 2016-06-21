@@ -77,4 +77,8 @@ GestorMovimientos::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+# Added default_url_options[:host] to make hobo_metasearch work properly
+  Rails.application.routes.default_url_options[:host] = 'movimientos.demo.unoycero.com'
+
 end
