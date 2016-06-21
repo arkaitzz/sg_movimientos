@@ -12,13 +12,14 @@ class MovimientosController < ApplicationController
 
   # The index is redefined in order to be usable for the gem hobo_metasearch
   def index
+    @xls = false
     params[:q] = {} if !params[:q]
     @search = Movimiento.search(params[:q])
     @movimientos = @search.result.paginate(:page => params[:page], :per_page => 50)
     movimientos = @search.result
-    ruta_xls = busqueda_movimientos_fichero(movimientos)
-    if params[:formato] == 'xls'
-      send_file ruta_xls , :type => 'application/vnd.ms-excel'
+    if params[:q] != {}
+      @xls = true
+      ruta_xls = busqueda_movimientos_fichero(movimientos)
     end
   end
 

@@ -1,9 +1,12 @@
 <index-page>
 
   <collection: replace>
-    <div class='row' style='margin-bottom:15px'>
-      <a class="btn btn-primary" style='float:right' rel="nofollow" href="/movimientos/xls/"> Descargar Tabla </a>
-    </div>
+    <if test="&@xls">
+      <div class='row' style='margin-bottom:15px'>
+        <a class="btn btn-primary" style='float:right' rel="nofollow" href="/movimientos/xls/"> Descargar Tabla </a>
+        <a class="btn class-link" style='float:right; margin-right:10px' rel="nofollow" href="/movimientos/"> Limpiar filtros </a>
+      </div>
+    </if>
     <table-plus-with-filters with='&@movimientos' fields='this, titular, fechaop, fechavalor,numcuenta, importe, saldo,  codconceptocomun, desconceptocomun, actions' filters='titular, fechaop, fechavalor, numcuenta, importe, saldo,  codconceptocomun, desconceptocomun,'>
       <saldo-view:><%= number_to_currency(this) %></saldo-view:> 
       <importe-view:><%= number_to_currency(this) %></importe-view:> 
