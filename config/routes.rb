@@ -9,6 +9,8 @@ GestorMovimientos::Application.routes.draw do
   get 'import/index/' => 'import#index', :as => 'import_index'
   post 'import/process/' => 'import#import', :as => 'import_file'
   get 'movimientos/xls/' => 'movimientos#descarga_xls', :as => 'xls_download'
+  get 'movimientos/eliminar_duplicados/' => 'movimientos#eliminar_duplicados', :as => 'dup_delete'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

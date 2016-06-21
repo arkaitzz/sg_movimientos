@@ -1,6 +1,9 @@
 <index-page>
 
   <collection: replace>
+    <div class='row' style='margin-bottom:15px'>
+      <a class="btn class-link" style='float:right;' rel="nofollow" href="movimientos/eliminar_duplicados/"> Limpiar duplicados </a>
+    </div>
     <if test="&@xls">
       <div class='row' style='margin-bottom:15px'>
         <a class="btn btn-primary" style='float:right' rel="nofollow" href="/movimientos/xls/"> Descargar Tabla </a>

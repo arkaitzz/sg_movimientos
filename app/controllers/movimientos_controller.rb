@@ -97,5 +97,18 @@ class MovimientosController < ApplicationController
     return "app/attachments/documents/lista_movimientos.xls"
   end
 
+  def eliminar_duplicados
+    grouped = Movimiento.all.group_by{|movimiento| [movimiento.titular, movimiento.fechaop, movimiento.fechavalor, movimiento.importe, movimiento.saldo] }
+    count = grouped.count
+    grouped.values.each do |duplicates|
+      # the first one we want to keep
+      first_one = duplicates.shift # or pop for last one
+      # if there are any more left, they are duplicates
+      # so delete all of them
+      duplicates.each{|double| double.destroy} # duplicates can now be destroyed
+    end
+      redirect_to '/movimientos', notice: "#{count.to_s} registros únicos. Los demás se han eliminado."
+  end
+
 end
 
