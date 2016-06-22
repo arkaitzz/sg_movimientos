@@ -20,6 +20,8 @@ class MovimientosController < ApplicationController
     if params[:q] != {}
       @xls = true
       ruta_xls = busqueda_movimientos_fichero(movimientos)
+      por_concepto = @movimientos.group("desconceptocomun")
+      @concepts = por_concepto.sum('importe')
     end
   end
 
