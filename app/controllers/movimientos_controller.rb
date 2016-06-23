@@ -19,9 +19,9 @@ class MovimientosController < ApplicationController
     movimientos = @search.result
     if params[:q] != {}
       @xls = true
-      ruta_xls = busqueda_movimientos_fichero(movimientos)
       por_concepto = @movimientos.group("desconceptocomun")
       @concepts = por_concepto.sum('importe')
+      ruta_xls = busqueda_movimientos_fichero(movimientos, @concepts)
     end
   end
 
@@ -31,7 +31,7 @@ class MovimientosController < ApplicationController
 
 
   # Genera XLS
-  def busqueda_movimientos_fichero(movimientos_busqueda)
+  def busqueda_movimientos_fichero(movimientos_busqueda, resumen)
     workbook = Spreadsheet.open 'app/attachments/xls_templates/busqueda_movimientos.xls'
     worksheet = workbook.worksheet 'Movimientos'
     # Aspecto del XLS
@@ -94,6 +94,14 @@ class MovimientosController < ApplicationController
       worksheet[fila,18] = movimiento.concepto6
       worksheet[fila,19] = movimiento.concepto7
       worksheet[fila,20] = movimiento.concepto8
+    end
+      fila += 5
+      worksheet[fila,5] = 'Concepto'
+      worksheet[fila,6] = 'Suma de importes'
+    resumen.each do |key, value|
+      fila += 1
+      worksheet[fila,5] = key.to_s
+      worksheet[fila,6] = "%5.2f" % value
     end
     workbook.write "app/attachments/documents/lista_movimientos.xls"
     return "app/attachments/documents/lista_movimientos.xls"
