@@ -15,6 +15,30 @@ class MovimientosController < ApplicationController
     @xls = false
     params[:q] = {} if !params[:q]
     @search = Movimiento.search(params[:q])
+    if params[:c1]
+      case params[:c1]         #https://github.com/activerecord-hackery/ransack
+      when '1'
+        @search = Movimiento.where('titular LIKE ?', '%arcocha%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%e3d%', '%e3d%', '%e3d%').ransack
+      when '2'
+        @search = Movimiento.where('titular LIKE ?', '%arcocha%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%desvan%', '%desvan%', '%desvan%').ransack
+      when '3'
+        @search = Movimiento.where('titular LIKE ?', '%e3d%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%arcocha%', '%arcocha%', '%arcocha%').ransack
+      when '4'
+        @search = Movimiento.where('titular LIKE ?', '%e3d%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%desvan%', '%desvan%', '%desvan%').ransack
+      when '5'
+        @search = Movimiento.where('titular LIKE ?', '%desvan%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%arcocha%', '%arcocha%', '%arcocha%').ransack
+      when '6'
+        @search = Movimiento.where('titular LIKE ?', '%desvan%')
+        @search = @search.where('concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%e3d%', '%e3d%', '%e3d%').ransack
+      else
+        logger.info("ARK: Se ha salido el case")
+      end
+    end
     @movimientos = @search.result.paginate(:page => params[:page], :per_page => 50)
     movimientos = @search.result
     if params[:q] != {}
@@ -23,6 +47,11 @@ class MovimientosController < ApplicationController
       @concepts = por_concepto.sum('importe')
       ruta_xls = busqueda_movimientos_fichero(movimientos, @concepts)
     end
+  end
+
+  def index_2
+    @movimientos = Movimiento.where('titular LIKE ? AND concepto1 LIKE ? OR concepto2 LIKE ? OR concepto3 LIKE ?', '%desvan%', '%arkaitz%', '%arkaitz%', '%arkaitz%')
+  hobo_index
   end
 
   def descarga_xls

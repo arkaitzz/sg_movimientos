@@ -4,6 +4,14 @@
     <div class='row' style='margin-bottom:15px'>
       <a class="btn class-link" style='float:right;' rel="nofollow" href="movimientos/eliminar_duplicados/"> Limpiar duplicados </a>
     </div>
+    <div class='row' style='margin-bottom:15px'>
+      <a class="btn class-link" style='float:right;' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=1"> arcocha -> e3d</a>
+      <a class="btn class-link" style='float:right;margin-right:10px' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=2"> arcocha -> desvan</a>
+      <a class="btn class-link" style='float:right;margin-right:10px' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=3"> e3d -> arcocha</a>
+      <a class="btn class-link" style='float:right;margin-right:10px' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=4"> e3d -> desvan</a>
+      <a class="btn class-link" style='float:right;margin-right:10px' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=5"> desvan -> arcocha</a>
+      <a class="btn class-link" style='float:right;margin-right:10px' rel="nofollow" href="/movimientos?q[titular_cont]=&q[fechaop_gteq]=&q[fechaop_lteq]=&q[fechavalor_gteq]=&q[fechavalor_lteq]=&q[numcuenta_cont]=&q[importe_gteq]=&q[importe_lteq]=&q[saldo_gteq]=&q[saldo_lteq]=&q[codconceptocomun_cont]=&q[concepto1_cont]=&q[concepto2_cont]=&q[concepto3_cont]=&c1=6"> desvan -> e3d</a>
+    </div>
     <if test="&@xls">
       <div class='row' style='margin-bottom:15px'>
         <a class="btn btn-primary" style='float:right' rel="nofollow" href="/movimientos/xls/"> Descargar Tabla </a>
