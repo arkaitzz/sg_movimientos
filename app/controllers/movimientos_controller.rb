@@ -97,6 +97,8 @@ class MovimientosController < ApplicationController
     worksheet.column(18).width = 50
     worksheet.column(19).width = 50
     worksheet.column(20).width = 50
+    worksheet.column(21).width = 5
+    worksheet.column(22).width = 70
 
     fila = 1
     for movimiento in movimientos_busqueda
@@ -123,6 +125,11 @@ class MovimientosController < ApplicationController
       worksheet[fila,18] = movimiento.concepto6
       worksheet[fila,19] = movimiento.concepto7
       worksheet[fila,20] = movimiento.concepto8
+      columna = 22
+      for inverso in movimiento.inverso
+      worksheet[fila, columna] = inverso.detalle_movimiento
+        columna += 1
+      end
     end
       fila += 5
       worksheet[fila,5] = 'Concepto'

@@ -1,0 +1,13 @@
+<show-page without-record-flags>
+  <before-field-list:>
+    <div class='form-horizontal'>
+      Movimientos Inversos
+    </div>
+    <div class='well'>
+      <% for movimiento in @movimiento.inverso %>
+        <a href='/movimientos/#{movimiento.id}'><%= movimiento.id %> </a><%= movimiento.detalle_movimiento %> <br/>
+      <% end %>
+    </div>
+  </before-field-list:>
+</show-page>
+

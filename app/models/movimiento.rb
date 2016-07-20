@@ -50,6 +50,13 @@ class Movimiento < ActiveRecord::Base
 #    end # end CSV.foreach
 #  end # end self.import(file)
 
+  def inverso
+    Movimiento.where(:importe => self.importe*(-1), :fechaop => (self.fechaop)..(self.fechaop + 7.days))
+  end
+
+  def detalle_movimiento
+    self.titular + " / " + self.numcuenta + " / " + self.fechaop.to_s + " / " + self.importe.to_s
+  end
 
   def self.import(file)
     csv = CSV.open(file.path, "r:ISO-8859-15:UTF-8", {:col_sep => ";", :headers => :first_row})
